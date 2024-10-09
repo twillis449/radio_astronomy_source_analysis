@@ -182,6 +182,7 @@ def analyze_image(filename, freq, z_str, alpha_str, specified_las, use_mask_l,do
 #   print('*** lobe_las', lobe_las)
     n_flux_mjy = 0.0 
     for i in range(n):
+      point_source = False
       if i > 0:
        p =  polygon_list[i-1]
        relative_area = p.area / total_area
@@ -319,13 +320,11 @@ def analyze_image(filename, freq, z_str, alpha_str, specified_las, use_mask_l,do
       n_flux = 0.0
       p_cont = False
 #     print('max_signal vs total flux ', max_signal, flux)
-      max_flux_ratio = np.abs((max_signal - flux) / max_signal) 
-      max_flux_ratio = np.abs((max_signal - flux) / flux) 
-#     print('max_flux_ratio ', max_flux_ratio)
-      if max_flux_ratio < 0.2:
-         point_source = True
-      else:
-         point_source = False
+      ratio = np.abs(flux/ max_signal)
+# test for point source
+      print('flux ratio ', ratio)
+      if ratio <= 1.2:
+        point_source = True
 #     print('nuclear_pos testing ', nuclear_pos)
 #     print('polygon', p)
       if p.contains(nuclear_pos) and do_subt:
