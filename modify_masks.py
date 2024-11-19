@@ -25,7 +25,7 @@ def modify_masks(filename, json_polygons):
 
     
     if num_polygons > 0:
-      original_mask_file = filename +'-white_tophat.mask.fits'
+      original_mask_file = filename +'-white_tophat_mask.fits'
 
       hdu_list = fits.open(original_mask_file)
       hdu = hdu_list[0]

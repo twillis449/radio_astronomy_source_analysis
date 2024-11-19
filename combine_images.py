@@ -95,7 +95,7 @@ def combine_images(filename, json_polygons, original_noise=0.0):
       
       # we need to update the mask file as some masked components have now been 
       # moved into the combined final output file
-      mask_file = filename + '-white_tophat.mask.fits'
+      mask_file = filename + '-white_tophat_mask.fits'
       print('mask file to be updated ', mask_file)
       hdu_list = fits.open(mask_file)
       hdu = hdu_list[0]

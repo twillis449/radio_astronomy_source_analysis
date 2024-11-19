@@ -144,7 +144,7 @@ def make_mask(argv):
     hdu.data = mask
     hdu.header['DATAMIN'] = 0.0
     hdu.header['DATAMAX'] = 1.0
-    outfile = filename +'-white_tophat.mask.fits'
+    outfile = filename +'-white_tophat_mask.fits'
     print('mask output to ', outfile )
     hdu.writeto(outfile, overwrite=True)
 
