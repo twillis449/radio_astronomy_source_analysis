@@ -85,7 +85,7 @@ def paint_image(filename, maskname):
        hdu.header['DATAMIN'] = hdu.data.min()
        hdu.header['DATAMAX'] = hdu.data.max()
        if len(names) > 0:
-         inpainted_result_file =  names[i] +'-CV_NS_inpaint_result.fits'
+         inpainted_result_file =  names[i] +'_CV_NS_inpaint_result.fits'
        else:
          loc = input_image.find('.fits')
          inpainted_result_file =  input_image[:loc] + '-CV_NS_inpaint_result.fits'
@@ -145,13 +145,13 @@ def paint_image(filename, maskname):
 
      if len(names) > 0:
        if use_cv2:
-           inpainted_png_file =  names[i] +'-CV_NS_inpaint_result.png'
+           inpainted_png_file =  names[i] +'_CV_NS_inpaint_result.png'
        else:
            inpainted_png_file =  names[i] +'-pyheal_inpaint_result.png'
      else:
        loc = input_image.find('.fits')
        if use_cv2:
-           inpainted_png_file =  filename[:loc] +'-CV_NS_inpaint_result.png'
+           inpainted_png_file =  filename[:loc] +'_CV_NS_inpaint_result.png'
        else:
            inpainted_png_file =  filename[:loc] +'-pyheal_inpaint_result.png'
      plt.savefig(inpainted_png_file)
